@@ -1,0 +1,11 @@
+tasks:
+  - init: |
+      sleep 120
+      if test ! -e /workspace/hey; then
+        printf '%s/%s' "$(date)" "$GITPOD_INSTANCE_ID" > /workspace/hey
+      fi
+# 3812
+
+# 15271
+
+# 29503
