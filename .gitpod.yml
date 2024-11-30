@@ -2,7 +2,7 @@ tasks:
   - init: |
       sleep 120
       if test ! -e /workspace/hello; then
-        printf '%s/%s' "$(date)" "$GITPOD_INSTANCE_ID" > /workspace/hello
+        printf '%s/%s' "$(date)" "$GITPOD_INSTANCE_ID" > hello
       fi
 # 3812
 
