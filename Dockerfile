@@ -25,15 +25,16 @@ xdg-settings set default-web-browser supervisor-browser.desktop
 cat >> /etc/bash.bashrc <<'BASH'
 
 if mkdir /tmp/.custom_browser.lock 2>/dev/null && test -e /.supervisor/browser.sh; then
-  cat > /.supervisor/browser.sh <<'BROWSER'
+  sudo dd of=/.supervisor/browser.sh status=none <<'BROWSER'
 #!/bin/bash
 
 url="$@"
 if [[ "$url" =~ ^file:// ]]; then
         for port in {1234..2000}; do
                 (echo >/dev/tcp/localhost/${port}) 2>/dev/null && continue
+                { printf 'HTTP/1.0 200 OK\r\n\r\n'; cat "${url#file://}"; } | nc -l -p $port -q 1 &
                 url="http://localhost:${port}"
-                { printf 'HTTP/1.0 200 OK\r\n\r\n'; cat "${url#file://}"; } | nc -l -p $port -q 1 & break
+                break
         done
 fi
 
