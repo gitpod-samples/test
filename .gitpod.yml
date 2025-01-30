@@ -1,15 +1,2 @@
-tasks:
-  - init: |
-      # sleep 60
-      if test ! -e /workspace/hello; then
-        printf '%s/%s' "$(date)" "$GITPOD_INSTANCE_ID" > hello
-      fi
-# 3812
-
-# 15271
-
-# 29503
-
-# 16377
-
-# 5875
+image:
+    file: .gitpod.Dockerfile
