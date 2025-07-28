@@ -1,1 +1,2 @@
-image: docker.io/axonasif/workspace-base-vnc
+image: us-central1-docker.pkg.dev/gitpodify/gitpod-images/mini:latest
+
