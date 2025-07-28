@@ -1,2 +1,1 @@
-image:
-    file: Dockerfile
+image: docker.io/axonasif/workspace-base-vnc
