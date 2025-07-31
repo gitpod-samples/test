@@ -1,2 +1,3 @@
-image: us-central1-docker.pkg.dev/gitpodify/gitpod-images/mini:latest
+# image: us-central1-docker.pkg.dev/gitpodify/gitpod-images/mini:latest
+image: trialpogotd.jfrog.io/gitpod/base:latest
 
