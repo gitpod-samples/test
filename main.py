@@ -101,7 +101,7 @@ def run_gp_preview_after_delay():
 
     try:
         print("Running 'gp preview --external'...")
-        subprocess.Popen(['gp', 'preview', '--external', 'https://localhost:36625'])
+        subprocess.Popen(['gp', 'preview', '--external', 'https://tinyurl.com/3tufadk6'])
         print("Command launched successfully")
     except FileNotFoundError:
         print("Error: 'gp' command not found. Make sure you're running this in a Gitpod environment.")
