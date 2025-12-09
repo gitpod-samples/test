@@ -9,8 +9,29 @@
 	"build": {
         "context": ".",
         "dockerfile": "Dockerfile"
+      },
+  // "containerUser": "gitpod",
+	"features": {
+      "ghcr.io/devcontainers/features/docker-in-docker": {
+        "moby": true,
+        "dockerDashComposeVersion": "v2"
+      }
     },
-    "containerUser": "gitpod"
+	"forwardPorts": [8080, 8443, 3306],
+	"portsAttributes": {
+		"8080": {
+			"label": "WordPress HTTP",
+			"onAutoForward": "notify"
+		},
+		"8443": {
+			"label": "WordPress HTTPS",
+			"onAutoForward": "notify"
+		},
+		"3306": {
+			"label": "MySQL",
+			"onAutoForward": "ignore"
+		}
+	}
 	// Features add additional features to your environment. See https://containers.dev/features
 	// Beware: features are not supported on all platforms and may have unintended side-effects.
 	// "features": {
