@@ -4,34 +4,19 @@
 // See https://aka.ms/devcontainer.json for more information.
 {
 	"name": "Ona",
-	// Use "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
 	// instead of the build to use a pre-built image.
-	"build": {
-        "context": ".",
-        "dockerfile": "Dockerfile"
-      },
+	// "build": {
+    //     "context": ".",
+    //     "dockerfile": "Dockerfile"
+    //   },
   // "containerUser": "gitpod",
 	"features": {
       "ghcr.io/devcontainers/features/docker-in-docker": {
-        "moby": true,
-        "dockerDashComposeVersion": "v2"
+        "moby": false
       }
     },
-	"forwardPorts": [8080, 8443, 3306],
-	"portsAttributes": {
-		"8080": {
-			"label": "WordPress HTTP",
-			"onAutoForward": "notify"
-		},
-		"8443": {
-			"label": "WordPress HTTPS",
-			"onAutoForward": "notify"
-		},
-		"3306": {
-			"label": "MySQL",
-			"onAutoForward": "ignore"
-		}
-	}
+	"postCreateCommand": "bash .devcontainer/post-create.sh"
 	// Features add additional features to your environment. See https://containers.dev/features
 	// Beware: features are not supported on all platforms and may have unintended side-effects.
 	// "features": {
